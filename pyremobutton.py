@@ -4,10 +4,10 @@ from __future__ import absolute_import, print_function, unicode_literals
 import dbus
 import dbus.mainloop.glib
 try:
-  from gi.repository import GObject
+    #from gi.repository import GObject
+    from gi.repository import GLib
 except ImportError:
-  import gobject as GObject
-
+    exit()
 import os
 import sys
 import time
@@ -43,7 +43,7 @@ def read_button_daemon(button):
                     dbus_interface="org.freedesktop.DBus.Properties",
                     signal_name="PropertiesChanged",
                     path_keyword="path")
-    mainloop = GObject.MainLoop()
+    mainloop = GLib.MainLoop()
     mainloop.run()
 
 def child_process(button):
